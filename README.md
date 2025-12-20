@@ -1,6 +1,6 @@
 # Portfolio - Amando Barbosa
 
-![Portfolio Preview](/Cover.png)
+![Portfolio Preview](public/Cover.png)
 
 High-performance portfolio website built with modern React patterns, focusing on specialized architectural decisions for scalability, accessibility, and user experience.
 

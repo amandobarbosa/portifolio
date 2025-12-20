@@ -43,7 +43,7 @@ export default function Projects() {
       tech: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion"],
       image: "🚀",
       demoUrl: "",
-      githubUrl: "https://github.com/amandobarbosa",
+      githubUrl: "https://github.com/amandobarbosa/portifolio",
     },
   ];
 
