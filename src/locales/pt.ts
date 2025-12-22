@@ -116,6 +116,16 @@ export const pt = {
         viewDemo: "Ver Demo",
         viewCode: "Ver Código",
         items: {
+            eduarda: {
+                type: "Landing Page & CMS",
+                title: "Eduarda Lima Beauty",
+                description: "Plataforma sofisticada para maquiadora profissional, com foco em noivas e pele negra. Inclui painel administrativo para gestão de serviços, portfólio e agendamentos.",
+            },
+            abds: {
+                type: "Website Institucional",
+                title: "ABDS Solutions",
+                description: "O site oficial da ABDS Solutions, uma empresa de tecnologia especializada em desenvolvimento de software sob medida. Focada em entregar soluções de excelência com qualidade, escalabilidade e segurança para transformar negócios.",
+            },
             netsuite: {
                 type: "Integração ERP",
                 title: "Gestão de Dados NetSuite",

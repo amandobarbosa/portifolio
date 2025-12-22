@@ -118,6 +118,16 @@ export const en: Translations = {
         viewDemo: "View Demo",
         viewCode: "View Code",
         items: {
+            eduarda: {
+                type: "Landing Page & CMS",
+                title: "Eduarda Lima Beauty",
+                description: "Sophisticated platform for a professional makeup artist, focusing on brides and black skin. Includes an administrative panel for managing services, portfolio, and appointments.",
+            },
+            abds: {
+                type: "Institutional Website",
+                title: "ABDS Solutions",
+                description: "The official website of ABDS Solutions, a technology company specialized in custom software development. Focused on delivering excellence with quality, scalability, and security to transform businesses.",
+            },
             netsuite: {
                 type: "ERP Integration",
                 title: "NetSuite Data Management",

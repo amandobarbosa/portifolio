@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 import { siteConfig } from "@/config/site";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -15,6 +16,26 @@ export default function Projects() {
 
 
   const projects = [
+    {
+      featured: true,
+      type: t.projects.items.eduarda.type,
+      title: t.projects.items.eduarda.title,
+      description: t.projects.items.eduarda.description,
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "React Query"],
+      image: "/projects/eduarda-beauty.png",
+      demoUrl: "https://eduarda-carmo-beauty.vercel.app/",
+      githubUrl: "",
+    },
+    {
+      featured: false,
+      type: t.projects.items.abds.type,
+      title: t.projects.items.abds.title,
+      description: t.projects.items.abds.description,
+      tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      image: "/projects/abds-solutions.png",
+      demoUrl: "https://abds-solutions.vercel.app/",
+      githubUrl: "",
+    },
     {
       featured: false,
       type: t.projects.items.netsuite.type,
@@ -36,12 +57,12 @@ export default function Projects() {
       githubUrl: "",
     },
     {
-      featured: true,
+      featured: false,
       type: t.projects.items.portfolio.type,
       title: t.projects.items.portfolio.title,
       description: t.projects.items.portfolio.description,
       tech: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion"],
-      image: "🚀",
+      image: "/projects/personal-portfolio.png",
       demoUrl: "",
       githubUrl: "https://github.com/amandobarbosa/portifolio",
     },
@@ -77,8 +98,17 @@ export default function Projects() {
               className="relative bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[var(--radius-lg)] overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-2 flex flex-col"
               variants={staggerItem}
             >
-              <div className={`relative h-[240px] flex items-center justify-center bg-[var(--bg-sidebar)] text-[4rem] overflow-hidden group/image border-b border-[var(--border-color)]`}>
-                {project.image}
+              <div className={`relative h-[240px] flex items-center justify-center bg-[var(--bg-sidebar)] overflow-hidden group/image border-b border-[var(--border-color)]`}>
+                {project.image.startsWith("/") ? (
+                  <Image 
+                    src={project.image} 
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover/image:scale-110"
+                  />
+                ) : (
+                  <span className="text-[4rem]">{project.image}</span>
+                )}
                 
                 <div className="absolute inset-0 bg-black/70 flex items-center justify-center gap-4 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
                   {project.demoUrl && (
