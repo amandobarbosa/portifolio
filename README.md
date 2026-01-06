@@ -24,14 +24,17 @@ Feature-based directory structure (`src/components/*`) ensures code co-location.
 - Animation variants
 
 ### Internationalization (i18n)
-Custom lightweight i18n implementation reducing bundle size compared to heavy libraries like `next-i18next` for this specific use case.
+Custom lightweight i18n implementation optimized for SPA (Single Page Application) behavior:
 - **Strategy**: Content dictionary pattern with type-safe keys.
+- **Decision vs URL-based**: Chosen State-based i18n (`localStorage` + Context) over URL-based routing (`/pt`, `/en`) to provide instantaneous language switching without route re-hydration, prioritizing user experience for a single-page scope while maintaining a clean URL structure.
 - **Implementation**: `useTranslation` hook providing strictly typed access to `locales/pt.ts` and `locales/en.ts`.
 
-### Performance Optimizations
-- **Core Web Vitals**: Images optimized with `next/image` (WebP conversion, lazy loading).
-- **Bundle Analysis**: Tree-shaking enabled; Framer Motion imports optimized for reduced main thread blocking.
-- **CSS Architecture**: Zero-runtime CSS via Tailwind, replacing the previous CSS Modules approach for better unmatched code removal.
+### Performance & Modern Patterns
+- **Full Stack Standard**: Replaced all hardcoded SVGs with `lucide-react` for icon consistency and better tree-shaking.
+- **Core Web Vitals**: Images optimized with Next.js `Image` component (WebP, automatic sizing, lazy loading).
+- **Bundle Optimization**: Framer Motion imports are scoped to minimize main thread execution.
+- **Styling Architecture**: Zero-runtime CSS via Tailwind CSS 4, utilizing modern CSS variables for a dynamic design system.
+
 
 ## Project Structure
 

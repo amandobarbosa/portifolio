@@ -153,10 +153,36 @@ export default function Projects() {
                 
                 <p className="text-[0.85rem] text-[var(--text-secondary)] leading-[1.6] mb-6">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech) => (
                     <span key={tech} className="text-[0.7rem] px-2 py-0.5 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-[var(--radius-sm)] text-[var(--text-secondary)]">{tech}</span>
                   ))}
+                </div>
+
+                {/* Mobile-only CTA buttons */}
+                <div className="flex gap-4 mt-auto md:hidden pt-4 border-t border-[var(--border-color)/10]">
+                  {project.demoUrl && (
+                    <a 
+                      href={project.demoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[var(--accent-primary)] text-white text-[0.75rem] font-bold uppercase tracking-wider rounded-lg transition-colors active:bg-[var(--accent-secondary)]"
+                    >
+                      <ExternalLink size={14} />
+                      {t.projects.viewDemo}
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a 
+                      href={project.githubUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[var(--bg-sidebar)] border border-[var(--border-color)] text-[var(--text-primary)] text-[0.75rem] font-bold uppercase tracking-wider rounded-lg transition-colors active:bg-[var(--bg-secondary)]"
+                    >
+                      <Github size={14} />
+                      {t.projects.viewCode}
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.article>
