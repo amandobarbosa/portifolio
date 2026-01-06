@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Zap, Users, BookOpen, Check } from "lucide-react";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 import { useTranslation } from "@/hooks/useTranslation";
 
@@ -33,19 +34,19 @@ export default function Experience() {
 
   const achievements = [
     {
-      icon: "🚀",
+      icon: <Zap size={20} className="text-[var(--accent-primary)]" />,
       title: t.experience.achievements.performance.title,
       description: t.experience.achievements.performance.description,
       badge: t.experience.achievements.performance.badge
     },
     {
-      icon: "👥",
+      icon: <Users size={20} className="text-[var(--accent-primary)]" />,
       title: t.experience.achievements.satisfaction.title,
       description: t.experience.achievements.satisfaction.description,
       badge: t.experience.achievements.satisfaction.badge
     },
     {
-      icon: "📚",
+      icon: <BookOpen size={20} className="text-[var(--accent-primary)]" />,
       title: t.experience.achievements.learning.title,
       description: t.experience.achievements.learning.description,
       badge: t.experience.achievements.learning.badge
@@ -130,7 +131,9 @@ export default function Experience() {
                 <div className="flex flex-col">
                   <h4 className="text-[0.9rem] font-bold text-[var(--text-primary)] mb-1">{achievement.title}</h4>
                   <p className="text-[0.8rem] text-[var(--text-secondary)] leading-[1.5] mb-2">{achievement.description}</p>
-                  <span className="inline-flex items-center text-[0.7rem] font-bold text-[var(--accent-primary)] bg-[var(--bg-sidebar)] px-2 py-0.5 rounded w-fit">✓ {achievement.badge}</span>
+                  <span className="inline-flex items-center gap-1 text-[0.7rem] font-bold text-[var(--accent-primary)] bg-[var(--bg-sidebar)] px-2 py-0.5 rounded w-fit uppercase tracking-wider">
+                    <Check size={10} /> {achievement.badge}
+                  </span>
                 </div>
               </motion.div>
             ))}

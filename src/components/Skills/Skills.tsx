@@ -3,13 +3,14 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Layers, Server, Wrench } from "lucide-react";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 import { useTranslation } from "@/hooks/useTranslation";
 
 const techMarquee = [
-  "Next.js", "Tailwind CSS", "React", "TypeScript", "Node.js", "Express", "JavaScript", "HTML5", "CSS3",
+  "Next.js", "Tailwind CSS", "React", "TypeScript", "Node.js", "Express", "Python", "FastAPI", "JavaScript", "HTML5", "CSS3",
   "Git", "Azure", "REST APIs", "Styled Components", "VS Code",
-  "Next.js", "Tailwind CSS", "React", "TypeScript", "Node.js", "Express", "JavaScript", "HTML5", "CSS3",
+  "Next.js", "Tailwind CSS", "React", "TypeScript", "Node.js", "Express", "Python", "FastAPI", "JavaScript", "HTML5", "CSS3",
   "Git", "Azure", "REST APIs", "Styled Components", "VS Code",
 ];
 
@@ -22,38 +23,50 @@ export default function Skills() {
 
   const skillCategories = [
     {
-      icon: "🎨",
+      icon: <Layers size={32} className="text-[var(--accent-primary)]" />,
       title: t.skills.categories.frontend,
       skills: [
-        { name: "Next.js", icon: "▲" },
-        { name: "React", icon: "⚛️" },
-        { name: "Tailwind CSS", icon: "🌊" },
-        { name: "TypeScript", icon: "📘" },
-        { name: "JavaScript", icon: "🟨" },
-        { name: "HTML5", icon: "🌐" },
-        { name: "CSS3", icon: "🎨" },
-        { name: "Styled Components", icon: "💅" },
+        { name: "Next.js" },
+        { name: "React" },
+        { name: "Tailwind CSS" },
+        { name: "TypeScript" },
+        { name: "JavaScript" },
+        { name: "HTML5" },
+        { name: "CSS3" },
+        { name: "Styled Components" },
       ]
     },
     {
-      icon: "⚙️",
+      icon: <Server size={32} className="text-[var(--accent-primary)]" />,
       title: t.skills.categories.backend,
       skills: [
-        { name: "Node.js", icon: "🟢" },
-        { name: "Express", icon: "🚂" },
-        { name: "REST APIs", icon: "🔗" },
-        { name: "SQL", icon: "🗃️" },
+        { name: "Node.js" },
+        { name: "Express" },
+        { name: "Python" },
+        { name: "FastAPI" },
+        { name: "REST APIs" },
+        { name: "SQL" },
       ]
     },
     {
-      icon: "🛠️",
+      icon: <Wrench size={32} className="text-[var(--accent-primary)]" />,
       title: t.skills.categories.tools,
       skills: [
-        { name: "Git", icon: "📦" },
-        { name: "VS Code", icon: "💻" },
-        { name: "Azure", icon: "☁️" },
-        { name: "NPM/Yarn", icon: "📦" },
-        { name: "Figma", icon: "🎯" },
+        { name: "Git" },
+        { name: "GitHub" },
+        { name: "Vercel" },
+        { name: "Render" },
+        { name: "Docker" },
+        { name: "Postman" },
+        { name: "Insomnia" },
+        { name: "VS Code" },
+        { name: "Yarn / NPM" },
+        { name: "ESLint" },
+        { name: "Prettier" },
+        { name: "CI/CD" },
+        { name: "Swagger" },
+        { name: "JWT" },
+        { name: "ORM (Prisma/TypeORM)" },
       ]
     },
   ];
@@ -96,11 +109,10 @@ export default function Skills() {
                 {category.skills.map((skill) => (
                   <motion.span
                     key={skill.name}
-                    className="flex items-center gap-1.5 px-3 py-1.5 bg-[var(--bg-secondary)] text-[var(--text-secondary)] text-[0.85rem] font-medium rounded-full transition-colors duration-250 cursor-default"
+                    className="px-3 py-1.5 bg-[var(--bg-secondary)] text-[var(--text-secondary)] text-[0.85rem] font-medium rounded-full transition-colors duration-250 cursor-default border border-[var(--border-color)] hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)]"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span className="text-sm">{skill.icon}</span>
                     {skill.name}
                   </motion.span>
                 ))}

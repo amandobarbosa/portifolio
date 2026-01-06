@@ -72,16 +72,15 @@ export default function Header() {
               ))}
             </ul>
 
-            {/* Language Toggle Button */}
             <motion.button
               onClick={toggleLanguage}
-              className="flex items-center justify-center w-9 h-9 rounded-full bg-[var(--bg-sidebar)] border border-[var(--border-color)] hover:border-[var(--accent-primary)] transition-all duration-250 cursor-pointer"
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--bg-sidebar)] border border-[var(--border-color)] hover:border-[var(--accent-primary)] transition-all duration-250 cursor-pointer text-[0.7rem] font-bold text-[var(--text-primary)]"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               title={language === "pt" ? "Switch to English" : "Mudar para Português"}
               aria-label={language === "pt" ? "Switch to English" : "Mudar para Português"}
             >
-              <span className="text-base">{language === "pt" ? "🇧🇷" : "🇺🇸"}</span>
+              {language === "pt" ? "PT" : "EN"}
             </motion.button>
 
             <button

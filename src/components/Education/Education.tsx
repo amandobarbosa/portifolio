@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { fadeInLeft } from "@/lib/animations";
+import { GraduationCap } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 
 
@@ -56,7 +57,9 @@ export default function Education() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-14 h-14 flex items-center justify-center bg-[var(--bg-sidebar)] rounded-[var(--radius-md)] text-[1.75rem] flex-shrink-0">🎓</div>
+                <div className="w-14 h-14 flex items-center justify-center bg-[var(--bg-sidebar)] rounded-[var(--radius-md)] text-[var(--accent-primary)] flex-shrink-0">
+                  <GraduationCap size={32} />
+                </div>
                 <div>
                   <h3 className="text-[1.125rem] font-bold text-[var(--text-primary)] mb-1">{t.education.degree.institution}</h3>
                   <p className="text-[0.9rem] text-[var(--accent-primary)] font-medium mb-1">{t.education.degree.course}</p>

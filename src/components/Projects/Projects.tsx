@@ -6,6 +6,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 import { siteConfig } from "@/config/site";
+import { Github, ExternalLink, ArrowRight, Star, Cloud, Stethoscope } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 
 
@@ -42,7 +43,7 @@ export default function Projects() {
       title: t.projects.items.netsuite.title,
       description: t.projects.items.netsuite.description,
       tech: ["React", "TypeScript", "Redux", "Tailwind CSS", "DevExtreme", "Zod"],
-      image: "☁️",
+      icon: <Cloud size={64} className="text-[var(--accent-primary)] opacity-20" />,
       demoUrl: "",
       githubUrl: "",
     },
@@ -52,7 +53,7 @@ export default function Projects() {
       title: t.projects.items.organs.title,
       description: t.projects.items.organs.description,
       tech: ["React", "TypeScript", "Tailwind CSS", "REST APIs", "Azure"],
-      image: "🏥",
+      icon: <Stethoscope size={64} className="text-[var(--accent-primary)] opacity-20" />,
       demoUrl: "",
       githubUrl: "",
     },
@@ -99,7 +100,7 @@ export default function Projects() {
               variants={staggerItem}
             >
               <div className={`relative h-[240px] flex items-center justify-center bg-[var(--bg-sidebar)] overflow-hidden group/image border-b border-[var(--border-color)]`}>
-                {project.image.startsWith("/") ? (
+                {project.image ? (
                   <Image 
                     src={project.image} 
                     alt={project.title}
@@ -107,7 +108,7 @@ export default function Projects() {
                     className="object-cover transition-transform duration-500 group-hover/image:scale-110"
                   />
                 ) : (
-                  <span className="text-[4rem]">{project.image}</span>
+                  project.icon
                 )}
                 
                 <div className="absolute inset-0 bg-black/70 flex items-center justify-center gap-4 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
@@ -120,11 +121,7 @@ export default function Projects() {
                       whileTap={{ scale: 0.9 }}
                       title={t.projects.viewDemo}
                     >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                        <polyline points="15 3 21 3 21 9"/>
-                        <line x1="10" y1="14" x2="21" y2="3"/>
-                      </svg>
+                      <ExternalLink size={20} />
                     </motion.a>
                   )}
                   
@@ -137,9 +134,7 @@ export default function Projects() {
                       whileTap={{ scale: 0.9 }}
                       title={t.projects.viewCode}
                     >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                      </svg>
+                      <Github size={20} />
                     </motion.a>
                   )}
                 </div>
@@ -147,7 +142,9 @@ export default function Projects() {
               
               <div className="p-8 flex flex-col flex-grow">
                 {project.featured && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[var(--accent-primary)] text-white rounded-[var(--radius-sm)] text-[0.65rem] font-bold uppercase tracking-wider mb-4 w-fit">⭐ {t.projects.featured}</span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[var(--accent-primary)] text-white rounded-[var(--radius-sm)] text-[0.65rem] font-bold uppercase tracking-wider mb-4 w-fit">
+                    <Star size={10} fill="currentColor" /> {t.projects.featured}
+                  </span>
                 )}
                 
                 <span className="text-[0.7rem] font-bold text-[var(--accent-primary)] uppercase tracking-wider mb-2">{project.type}</span>
@@ -181,9 +178,7 @@ export default function Projects() {
             whileTap={{ scale: 0.95 }}
           >
             {t.projects.viewMore}
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
+            <ArrowRight size={20} />
           </motion.a>
         </motion.div>
       </div>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Rocket, Palette, Accessibility, Smartphone } from "lucide-react";
 import { fadeInLeft, staggerContainer, staggerItem } from "@/lib/animations";
 import { useTranslation } from "@/hooks/useTranslation";
 
@@ -15,22 +16,22 @@ export default function About() {
 
   const aboutCards = [
     {
-      icon: "🚀",
+      icon: <Rocket size={20} className="text-[var(--accent-primary)]" />,
       title: t.about.cards.performance.title,
       description: t.about.cards.performance.description
     },
     {
-      icon: "🎨",
+      icon: <Palette size={20} className="text-[var(--accent-primary)]" />,
       title: t.about.cards.design.title,
       description: t.about.cards.design.description
     },
     {
-      icon: "♿",
+      icon: <Accessibility size={20} className="text-[var(--accent-primary)]" />,
       title: t.about.cards.accessibility.title,
       description: t.about.cards.accessibility.description
     },
     {
-      icon: "📱",
+      icon: <Smartphone size={20} className="text-[var(--accent-primary)]" />,
       title: t.about.cards.responsive.title,
       description: t.about.cards.responsive.description
     },
@@ -38,8 +39,8 @@ export default function About() {
 
 
   const languages = [
-    { flag: "🇧🇷", name: t.about.languages.portuguese, level: t.about.languages.native },
-    { flag: "🇺🇸", name: t.about.languages.english, level: t.about.languages.advanced },
+    { name: t.about.languages.portuguese, level: t.about.languages.native },
+    { name: t.about.languages.english, level: t.about.languages.advanced },
   ];
 
   return (
@@ -80,13 +81,12 @@ export default function About() {
               {languages.map((lang) => (
                 <motion.div
                   key={lang.name}
-                  className="flex items-center gap-2 px-4 py-2 bg-[var(--bg-sidebar)] rounded-full"
+                  className="flex items-center gap-2 px-4 py-2 bg-[var(--bg-sidebar)] rounded-full border border-[var(--border-color)]"
                   variants={staggerItem}
                 >
-                  <span className="text-lg">{lang.flag}</span>
                   <div>
-                    <div className="text-[0.85rem] font-medium text-[var(--text-primary)]">{lang.name}</div>
-                    <div className="text-[0.75rem] text-[var(--text-muted)]">{lang.level}</div>
+                    <div className="text-[0.85rem] font-bold text-[var(--accent-primary)]">{lang.name}</div>
+                    <div className="text-[0.75rem] text-[var(--text-muted)] uppercase tracking-wider">{lang.level}</div>
                   </div>
                 </motion.div>
               ))}
