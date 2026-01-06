@@ -153,9 +153,11 @@ export const en: Translations = {
         degree: {
             institution: "Estácio",
             course: "Bachelor's in Computer Science",
-            period: "Feb 2022 - Dec 2025",
+            period: "Feb 2022 - Jul 2026",
+            endDate: "2026-07-31",
             progress: "Course Progress",
             status: "In progress",
+            completedStatus: "Completed",
         },
         certifications: {
             title: "Courses & Certifications",

@@ -151,9 +151,11 @@ export const pt = {
         degree: {
             institution: "Estácio",
             course: "Bacharelado em Ciência da Computação",
-            period: "Fev 2022 - Dez 2025",
+            period: "Fev 2022 - Jul 2026",
+            endDate: "2026-07-31",
             progress: "Progresso do Curso",
             status: "Em andamento",
+            completedStatus: "Concluído",
         },
         certifications: {
             title: "Cursos & Certificações",

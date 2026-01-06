@@ -13,12 +13,17 @@ export default function Education() {
   const { t } = useTranslation();
 
 
-  const startDate = new Date(2022, 1);
-  const endDate = new Date(2025, 11);
+  const graduation = t.education.degree;
+  const startDate = new Date(2022, 1); // Feb 2022
+  const endDate = new Date(graduation.endDate);
   const currentDate = new Date();
+  
   const totalDuration = endDate.getTime() - startDate.getTime();
   const elapsed = currentDate.getTime() - startDate.getTime();
   const progress = Math.min(Math.round((elapsed / totalDuration) * 100), 100);
+  
+  const isCompleted = currentDate >= endDate;
+  const currentStatus = isCompleted ? graduation.completedStatus : graduation.status;
 
   return (
     <section id="educacao" className="section relative bg-[var(--bg-primary)] border-b border-[var(--border-color)] overflow-hidden" ref={ref}>
@@ -74,9 +79,9 @@ export default function Education() {
                 </div>
               </div>
 
-              <div className="inline-flex items-center gap-1.5 px-2 py-1 bg-[#2563eb1a] border border-[var(--accent-primary)] rounded-full text-[0.75rem] font-semibold text-[var(--accent-primary)] mt-6">
-                <span className="w-1.5 h-1.5 bg-[var(--accent-primary)] rounded-full animate-pulse"></span>
-                {t.education.degree.status}
+              <div className={`inline-flex items-center gap-1.5 px-2 py-1 ${isCompleted ? 'bg-green-500/10 border-green-500 text-green-500' : 'bg-[#2563eb1a] border-[var(--accent-primary)] text-[var(--accent-primary)]'} border rounded-full text-[0.75rem] font-semibold mt-6`}>
+                {!isCompleted && <span className="w-1.5 h-1.5 bg-[var(--accent-primary)] rounded-full animate-pulse"></span>}
+                {currentStatus}
               </div>
             </motion.div>
           </motion.div>
